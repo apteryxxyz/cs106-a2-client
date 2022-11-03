@@ -1,0 +1,23 @@
+# File Structure
+
+## Models
+
+- models/user.h
+- models/book.h
+- models/author.h
+- models/borrow.h
+
+These files would contain the database model classes.
+They may also include a few methods, such as `save` and `fetch`.
+
+## Database
+
+- database.h
+
+Contains a Database class, which would hold all of the database handling code.
+
+## Windows
+
+- mainwindow.h & mainwindow.cpp
+
+Represent windows.
