@@ -1,6 +1,8 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include "worker.h"
+
 #include <QMainWindow>
 
 QT_BEGIN_NAMESPACE
@@ -17,5 +19,6 @@ public:
 
 private:
     Ui::MainWindow *ui;
+    Worker *worker;
 };
 #endif // MAINWINDOW_H
