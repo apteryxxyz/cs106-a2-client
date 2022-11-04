@@ -1,3 +1,0 @@
-[submodule "external/HTTPRequest"]
-	path = external/HTTPRequest
-	url = https://github.com/elnormous/HTTPRequest
