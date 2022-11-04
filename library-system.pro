@@ -15,6 +15,10 @@ SOURCES += \
 
 HEADERS += \
     mainwindow.h \
+    models/author.h \
+    models/book.h \
+    models/borrow.h \
+    models/user.h \
     worker.h
 
 FORMS += \
