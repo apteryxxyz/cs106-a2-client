@@ -4,6 +4,9 @@
 #include "worker.h"
 
 #include <QMainWindow>
+#include <QJsonDocument>
+#include <QJsonObject>
+#include <QMessageBox>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Login; }
@@ -16,6 +19,9 @@ class Login : public QMainWindow
 public:
     explicit Login(QWidget *parent = nullptr);
     ~Login();
+
+private slots:
+    void on_LoginButton_clicked();
 
 private:
     Ui::Login *ui;

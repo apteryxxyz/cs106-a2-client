@@ -283,7 +283,7 @@ administrator</string>
       </spacer>
      </item>
      <item row="11" column="4">
-      <widget class="QPushButton" name="Login">
+      <widget class="QPushButton" name="LoginButton">
        <property name="maximumSize">
         <size>
          <width>150</width>
