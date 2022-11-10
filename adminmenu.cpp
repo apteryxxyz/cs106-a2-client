@@ -1,14 +1,13 @@
 #include "adminmenu.h"
 #include "ui_adminmenu.h"
 #include "booksearch.h"
-#include "ui_booksearch.h"
 #include "addbook.h"
-#include "ui_addbook.h"
 #include <QApplication>
 #include <QFile>
 #include <QMessageBox>
 #include <QDebug>
-
+#include <worker.h>
+#include <QFont>
 
 AdminMenu::AdminMenu(QWidget *parent)
     : QMainWindow(parent)
