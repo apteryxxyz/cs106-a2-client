@@ -1,6 +1,8 @@
 #ifndef LOGIN_H
 #define LOGIN_H
 
+#include "worker.h"
+
 #include <QMainWindow>
 
 QT_BEGIN_NAMESPACE
@@ -17,6 +19,7 @@ public:
 
 private:
     Ui::Login *ui;
+    Worker *worker;
 };
 
 #endif // LOGIN_H
