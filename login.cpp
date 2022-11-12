@@ -4,7 +4,7 @@
 Login::Login(QWidget *parent)
   : QMainWindow(parent)
   , ui(new Ui::Login)
-  , worker(new Worker(parent, ""))
+  , worker(new Worker(parent))
 {
     ui->setupUi(this);
 }
@@ -43,7 +43,7 @@ void Login::on_LoginButton_clicked()
             QMessageBox::information(this, "Login Successful", "You are an admin!");
         } else if (type == 2) {
             // Successful member login, show member window
-            QMessageBox::information(this, "login Successful", "You are a member!");
+            QMessageBox::information(this, "Login Successful", "You are a member!");
         } else {
             QMessageBox::information(this, "Unknown Error", "An unknown error has occurred!");
         }
