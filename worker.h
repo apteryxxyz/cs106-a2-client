@@ -13,13 +13,14 @@ class Worker : QObject
     Q_OBJECT
     QNetworkAccessManager* manager;
     std::string base_url = "https://lms.apteryx.xyz/api";
-    QString api_key;
+    QString token = "";
 
 public:
-    Worker(QObject *parent, QString api_key);
+    Worker(QObject *parent);
     ~Worker();
 
 public slots:
+    void set_token(QString new_token);
     QString wait_for_reply(QNetworkReply*reply);
     QString get(std::string location);
     QString post(std::string location, QByteArray data);
