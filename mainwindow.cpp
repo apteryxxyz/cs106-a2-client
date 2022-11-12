@@ -4,7 +4,7 @@
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
-    , worker(new Worker(parent, ""))
+    , worker(new Worker(parent))
 {
     ui->setupUi(this);
 }
