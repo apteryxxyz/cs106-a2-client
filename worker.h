@@ -13,9 +13,10 @@ class Worker : QObject
     Q_OBJECT
     QNetworkAccessManager* manager;
     std::string base_url = "https://lms.apteryx.xyz/api";
-    QString token = "";
 
 public:
+    QString token = "";
+
     Worker();
     ~Worker();
 
