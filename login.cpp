@@ -33,7 +33,7 @@ void Login::on_LoginButton_clicked()
     QJsonDocument login_doc = QJsonDocument::fromJson(login_response.toUtf8());
     QJsonObject login_object = login_doc.object();
 
-    if (login_response.contains("status")) {
+    if (login_object.contains("status")) {
         // If the login response has the "status" field, then an error ocurred
         QMessageBox::information(this, "Login Failed", "Incorrect email or password");
     } else {
