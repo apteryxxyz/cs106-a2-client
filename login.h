@@ -17,7 +17,9 @@ class Login : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit Login(QWidget *parent = nullptr);
+    Worker *worker;
+
+    explicit Login();
     ~Login();
 
 private slots:
@@ -25,7 +27,6 @@ private slots:
 
 private:
     Ui::Login *ui;
-    Worker *worker;
 };
 
 #endif // LOGIN_H

@@ -1,7 +1,15 @@
 #ifndef ADMINMENU_H
 #define ADMINMENU_H
 
+#include "worker.h"
+#include "login.h"
+
 #include <QMainWindow>
+#include <QApplication>
+#include <QFile>
+#include <QMessageBox>
+#include <QDebug>
+#include <QFont>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class AdminMenu; }
@@ -11,19 +19,19 @@ class AdminMenu : public QMainWindow
 {
     Q_OBJECT
 
+
 public:
-    AdminMenu(QWidget *parent = nullptr);
+    Login *parent;
+    Worker *worker;
+
+    AdminMenu(Login *parent);
     ~AdminMenu();
 
 private slots:
     void on_pushButton_logout_clicked();
-
     void on_pushButton_bookSearch_clicked();
-
     void on_pushButton_bookAdd_clicked();
-
     void on_pushButton_memberAdd_clicked();
-
     void on_pushButton_bookLog_clicked();
 
 private:

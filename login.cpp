@@ -1,10 +1,12 @@
 #include "login.h"
 #include "ui_login.h"
 
-Login::Login(QWidget *parent)
-  : QMainWindow(parent)
+#include "adminmenu.h"
+
+Login::Login()
+  : QMainWindow()
   , ui(new Ui::Login)
-  , worker(new Worker(parent))
+  , worker(new Worker())
 {
     ui->setupUi(this);
 }
@@ -35,12 +37,14 @@ void Login::on_LoginButton_clicked()
         // If the login response has the "status" field, then an error ocurred
         QMessageBox::information(this, "Login Failed", "Incorrect email or password");
     } else {
-        // QString token = login_object("token").toString();
+        QString token = login_object.value("token").toString();
         int type = login_object.value("user_type").toInt();
 
         if (type == 1) {
-            // Successful admin login, show admin window
-            QMessageBox::information(this, "Login Successful", "You are an admin!");
+            AdminMenu *menu = new AdminMenu(this);
+            menu->worker->set_token(token);
+            menu->show();
+            this->hide();
         } else if (type == 2) {
             // Successful member login, show member window
             QMessageBox::information(this, "Login Successful", "You are a member!");

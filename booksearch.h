@@ -1,23 +1,28 @@
 #ifndef BOOKSEARCH_H
 #define BOOKSEARCH_H
+
+#include "worker.h"
+#include "adminmenu.h"
+
+#include <QMainWindow>
 #include <QApplication>
 #include <QFile>
 #include <QMessageBox>
 #include <QDebug>
 
-
-#include <QMainWindow>
-
-namespace Ui {
-class BookSearch;
-}
+QT_BEGIN_NAMESPACE
+namespace Ui { class BookSearch; }
+QT_END_NAMESPACE
 
 class BookSearch : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    explicit BookSearch(QWidget *parent = nullptr);
+    AdminMenu *parent;
+    Worker *worker;
+
+    explicit BookSearch(AdminMenu *parent);
     ~BookSearch();
 
 private slots:

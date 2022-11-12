@@ -16,7 +16,7 @@ class Worker : QObject
     QString token = "";
 
 public:
-    Worker(QObject *parent);
+    Worker();
     ~Worker();
 
 public slots:

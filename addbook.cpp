@@ -1,26 +1,25 @@
 #include "addbook.h"
 #include "ui_addbook.h"
 
-addBook::addBook(QWidget *parent) :
-    QDialog(parent),
-    ui(new Ui::addBook)
+// IDEA: This could probably be shared between "Add Book" and "Edit Book"
+
+AddBook::AddBook()
+    : QDialog()
+    , ui(new Ui::AddBook)
 {
     ui->setupUi(this);
 }
 
-addBook::~addBook()
+AddBook::~AddBook()
 {
     delete ui;
 }
 
-void addBook::on_buttonBox_accepted() // OK button - saves new book
-{
+// Save new book
+void AddBook::on_buttonBox_accepted() {}
 
-}
-
-
-void addBook::on_buttonBox_rejected()
+void AddBook::on_buttonBox_rejected()
 {
     this->close();
+    delete this;
 }
-
