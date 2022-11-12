@@ -5,6 +5,7 @@
 
 AddBook::AddBook()
     : QDialog()
+    , worker(new Worker)
     , ui(new Ui::AddBook)
 {
     ui->setupUi(this);
@@ -13,6 +14,7 @@ AddBook::AddBook()
 AddBook::~AddBook()
 {
     delete ui;
+    delete worker;
 }
 
 // Save new book

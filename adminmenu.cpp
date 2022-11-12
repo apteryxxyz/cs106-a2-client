@@ -30,6 +30,7 @@ void AdminMenu::on_pushButton_bookSearch_clicked()
 {
     // Show the book search screen, hide this
     BookSearch *book_search = new BookSearch(this);
+    book_search->worker->set_token(worker->token);
     book_search->show();
     this->hide();
 }
@@ -38,6 +39,7 @@ void AdminMenu::on_pushButton_bookAdd_clicked()
 {
     // Show the add book pop up
     AddBook *book_add = new AddBook;
+    book_add->worker->set_token(worker->token);
     book_add->show();
 }
 

@@ -14,6 +14,8 @@ class AddBook : public QDialog
     Q_OBJECT
 
 public:
+    Worker *worker;
+
     explicit AddBook();
     ~AddBook();
 
@@ -23,7 +25,6 @@ private slots:
 
 private:
     Ui::AddBook *ui;
-    Worker *worker;
 };
 
 #endif // ADDBOOK_H

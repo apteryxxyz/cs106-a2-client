@@ -5,8 +5,8 @@
 
 Login::Login()
   : QMainWindow()
-  , ui(new Ui::Login)
   , worker(new Worker())
+  , ui(new Ui::Login)
 {
     ui->setupUi(this);
 }
