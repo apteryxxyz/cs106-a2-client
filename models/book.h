@@ -15,7 +15,7 @@ public:
         title, description, genre, cover_image_url;
     int quantity;
 
-    std::optional<Author> author;
+    Author author;
 
     void read(QJsonObject &json)
     {
@@ -28,12 +28,7 @@ public:
         cover_image_url = json["cover_image_url"].toString();
         quantity = json["quantity"].toInt();
 
-        if (json.contains("author")) {
-            QJsonObject raw = json["author"].toObject();
-            Author new_author;
-            new_author.read(raw);
-            author = new_author;
-        }
+        author.read(json["author"].toObject());
     }
 
     void write(QJsonObject &json)
@@ -46,6 +41,9 @@ public:
         json["genre"] = genre;
         json["cover_image_url"] = cover_image_url;
         json["quantity"] = quantity;
+
+        json["author"] = QJsonObject();
+        author.write(json["author"].toObject());
     }
 };
 
