@@ -8,6 +8,9 @@
 #include <QNetworkReply>
 #include <QEventLoop>
 
+#include <QJsonDocument>
+#include <QJsonObject>
+
 class Worker : QObject
 {
     Q_OBJECT
@@ -23,6 +26,8 @@ public:
 public slots:
     void set_token(QString new_token);
     QString wait_for_reply(QNetworkReply*reply);
+    int response_has_error(QString response);
+
     QString get(std::string location);
     QString post(std::string location, QByteArray data);
     QString put(std::string location, QByteArray data);

@@ -25,6 +25,17 @@ QString Worker::wait_for_reply(QNetworkReply*reply)
     return reply->readAll();
 }
 
+// Easy method of checking if a response has resulted in an error
+// Returns 0 if no error, otherwise the HTTP status code
+int Worker::response_has_error(QString response)
+{
+    QJsonDocument document = QJsonDocument::fromJson(response.toUtf8());
+    QJsonObject object = document.object();
+
+    if (!object.contains("status")) return 0;
+    return object.value("status").toInt();
+}
+
 QString Worker::get(std::string location)
 {
     QNetworkRequest request(QUrl(QString::fromStdString(base_url + location)));
