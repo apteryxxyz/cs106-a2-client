@@ -5,11 +5,6 @@
 #include "login.h"
 
 #include <QMainWindow>
-#include <QApplication>
-#include <QFile>
-#include <QMessageBox>
-#include <QDebug>
-#include <QFont>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class AdminMenu; }

@@ -4,8 +4,6 @@
 #include "worker.h"
 
 #include <QMainWindow>
-#include <QJsonDocument>
-#include <QJsonObject>
 #include <QMessageBox>
 
 QT_BEGIN_NAMESPACE

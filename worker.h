@@ -10,6 +10,7 @@
 
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <QJsonArray>
 
 class Worker : QObject
 {
