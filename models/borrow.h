@@ -26,8 +26,10 @@ public:
         issued_at = json["issued_at"].toInt();
         issued_for = json["issued_for"].toInt();
 
-        book.read(json["book"].toObject());
-        user.read(json["user"].toObject());
+        QJsonObject raw_book = json["book"].toObject();
+        book.read(raw_book);
+        QJsonObject raw_user = json["user"].toObject();
+        user.read(raw_user);
     }
 
     void write(QJsonObject &json)
@@ -38,10 +40,13 @@ public:
         json["issued_at"] = issued_at;
         json["issued_for"] = issued_for;
 
-        json["book"] = QJsonObject();
-        book.write(json["book"].toObject());
-        json["user"] = QJsonObject();
-        user.write(json["user"].toObject());
+        QJsonObject temp_book;
+        book.write(temp_book);
+        json["book"] = temp_book;
+
+        QJsonObject temp_user;
+        user.write(temp_user);
+        json["user"] = temp_user;
     }
 };
 

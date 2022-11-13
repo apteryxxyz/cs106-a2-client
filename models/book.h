@@ -28,7 +28,8 @@ public:
         cover_image_url = json["cover_image_url"].toString();
         quantity = json["quantity"].toInt();
 
-        author.read(json["author"].toObject());
+        QJsonObject raw_author = json["author"].toObject();
+        author.read(raw_author);
     }
 
     void write(QJsonObject &json)
@@ -42,8 +43,9 @@ public:
         json["cover_image_url"] = cover_image_url;
         json["quantity"] = quantity;
 
-        json["author"] = QJsonObject();
-        author.write(json["author"].toObject());
+        QJsonObject temp_author;
+        author.write(temp_author);
+        json["author"] = temp_author;
     }
 };
 
