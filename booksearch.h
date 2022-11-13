@@ -23,6 +23,7 @@ public:
 
 private slots:
     void on_pushButton_back_clicked();
+    void on_lineEdit_searchBar_returnPressed();
 
 private:
     Ui::BookSearch *ui;
