@@ -13,7 +13,7 @@ public:
         title, description, cover_image_url;
     int quantity;
 
-    void read(QJsonObject json)
+    void read(QJsonObject &json)
     {
         id = json["id"].toString();
         isbn = json["isbn"].toString();
@@ -24,7 +24,7 @@ public:
         quantity = json["quantity"].toDouble();
     }
 
-    void write(QJsonObject json)
+    void write(QJsonObject &json)
     {
         json["id"] = id;
         json["isbn"] = isbn;

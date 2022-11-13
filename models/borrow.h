@@ -12,7 +12,7 @@ public:
     QString id, book_id, borrower_id;
     int issued_at, issued_for;
 
-    void read(QJsonObject json)
+    void read(QJsonObject &json)
     {
         id = json["id"].toString();
         book_id = json["book_id"].toString();
@@ -21,7 +21,7 @@ public:
         issued_for = json["issued_for"].toInt();
     }
 
-    void write(QJsonObject json)
+    void write(QJsonObject &json)
     {
         json["id"] = id;
         json["book_id"] = book_id;
