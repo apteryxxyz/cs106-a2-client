@@ -55,7 +55,8 @@ QJsonArray array = document.array();
 // Do whatever you need with the array
 // I would recommended converting each item into a user and pushing it to a new vector
 std::vector<User> users;
-for (auto object : array) {
+for (auto item : array) {
+    QJsonObject object = item.toObject();
     User user;
     user.read(object);
     users.push_back(user);
