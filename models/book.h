@@ -10,7 +10,7 @@ class Book
 
 public:
     QString id, isbn, author_id,
-        title, description, cover_image_url;
+        title, description, genre, cover_image_url;
     int quantity;
 
     void read(QJsonObject &json)
@@ -20,8 +20,9 @@ public:
         author_id = json["author_id"].toString();
         title = json["title"].toString();
         description = json["description"].toString();
+        genre = json["genre"].toString();
         cover_image_url = json["cover_image_url"].toString();
-        quantity = json["quantity"].toDouble();
+        quantity = json["quantity"].toInt();
     }
 
     void write(QJsonObject &json)
@@ -31,6 +32,7 @@ public:
         json["author_id"] = author_id;
         json["title"] = title;
         json["description"] = description;
+        json["genre"] = genre;
         json["cover_image_url"] = cover_image_url;
         json["quantity"] = quantity;
     }
