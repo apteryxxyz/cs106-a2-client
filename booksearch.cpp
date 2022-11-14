@@ -2,6 +2,7 @@
 #include "ui_booksearch.h"
 
 #include "models/book.h"
+#include <QTableWidgetItem>
 
 BookSearch::BookSearch(AdminMenu *parent)
     : QMainWindow()
@@ -25,10 +26,16 @@ void BookSearch::on_pushButton_back_clicked()
     delete this;
 }
 
+// A simple function to easily insert a row into the table
+void add_item(Ui::BookSearch *ui, int row, int column, QString content) {
+    QTableWidgetItem *item = new QTableWidgetItem(content);
+    item->setFlags(item->flags() ^ Qt::ItemIsEnabled);
+    ui->tableWidget->setItem(row, column, item);
+}
+
 void BookSearch::on_lineEdit_searchBar_returnPressed()
 {
     QString query = ui->lineEdit_searchBar->text();
-
     // TODO: Parse query into QUrlQuery
     std::string endpoint = "/books?search=" + query.toStdString();
     QString response = worker->get(endpoint);
@@ -47,12 +54,11 @@ void BookSearch::on_lineEdit_searchBar_returnPressed()
         Book book;
         book.read(raw_book);
 
-        ui->tableWidget->setItem(i, 0, new QTableWidgetItem(book.isbn));
-        ui->tableWidget->setItem(i, 1, new QTableWidgetItem(book.title));
-        QString author_name = book.author.first_name + " " + book.author.last_name;
-        ui->tableWidget->setItem(i, 2, new QTableWidgetItem(author_name));
-        ui->tableWidget->setItem(i, 3, new QTableWidgetItem(book.genre));
+        add_item(ui, i, 0, book.isbn);
+        add_item(ui, i, 1, book.title);
+        add_item(ui, i, 2, book.author.first_name + " " + book.author.last_name);
+        add_item(ui, i, 3, book.genre);
         // FIXME: Quantity is not appearing in the table
-        ui->tableWidget->setItem(i, 4, new QTableWidgetItem(book.quantity));
+        add_item(ui, i, 4, QString::number(book.quantity));
     }
 }
