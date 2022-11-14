@@ -11,14 +11,14 @@ class Author
 public:
     QString id, first_name, last_name;
 
-    void read(QJsonObject json)
+    void read(QJsonObject &json)
     {
         id = json["id"].toString();
         first_name = json["first_name"].toString();
         last_name = json["last_name"].toString();
     }
 
-    void write(QJsonObject json)
+    void write(QJsonObject &json)
     {
         json["id"] = id;
         json["first_name"] = first_name;

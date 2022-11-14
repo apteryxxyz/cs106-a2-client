@@ -4,8 +4,6 @@
 #include "worker.h"
 
 #include <QMainWindow>
-#include <QJsonDocument>
-#include <QJsonObject>
 #include <QMessageBox>
 
 QT_BEGIN_NAMESPACE
@@ -17,7 +15,9 @@ class Login : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit Login(QWidget *parent = nullptr);
+    Worker *worker;
+
+    explicit Login();
     ~Login();
 
 private slots:
@@ -25,7 +25,6 @@ private slots:
 
 private:
     Ui::Login *ui;
-    Worker *worker;
 };
 
 #endif // LOGIN_H

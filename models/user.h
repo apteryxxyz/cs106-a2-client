@@ -21,7 +21,7 @@ public:
         email_address, phone_number,
         home_address_1, home_address_2, post_code;
 
-    void read(QJsonObject json)
+    void read(QJsonObject &json)
     {
         id = json["id"].toString();
         type = static_cast<Type>(json["type"].toDouble());
@@ -34,7 +34,7 @@ public:
         post_code = json["post_code"].toString();
     }
 
-    void write(QJsonObject json)
+    void write(QJsonObject &json)
     {
         json["id"] = id;
         json["type"] = type;

@@ -1,9 +1,9 @@
 #include "worker.h"
 
-Worker::Worker(QObject *parent)
-    : QObject(parent)
+Worker::Worker()
+    : QObject()
 {
-    manager = new QNetworkAccessManager(parent);
+    manager = new QNetworkAccessManager();
 }
 
 Worker::~Worker()
@@ -23,6 +23,17 @@ QString Worker::wait_for_reply(QNetworkReply*reply)
     connect(reply, SIGNAL(finished()), &loop, SLOT(quit()));
     loop.exec();
     return reply->readAll();
+}
+
+// Easy method of checking if a response has resulted in an error
+// Returns 0 if no error, otherwise the HTTP status code
+int Worker::response_has_error(QString response)
+{
+    QJsonDocument document = QJsonDocument::fromJson(response.toUtf8());
+    QJsonObject object = document.object();
+
+    if (!object.contains("status")) return 0;
+    return object.value("status").toInt();
 }
 
 QString Worker::get(std::string location)

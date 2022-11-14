@@ -9,11 +9,17 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    addbook.cpp \
+    adminmenu.cpp \
+    booksearch.cpp \
     login.cpp \
     main.cpp \
     worker.cpp
 
 HEADERS += \
+    addbook.h \
+    adminmenu.h \
+    booksearch.h \
     login.h \
     models/author.h \
     models/book.h \
@@ -22,9 +28,15 @@ HEADERS += \
     worker.h
 
 FORMS += \
+    addbook.ui \
+    adminmenu.ui \
+    booksearch.ui \
     login.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    Resources.qrc
