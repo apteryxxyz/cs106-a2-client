@@ -24,6 +24,8 @@ public:
 
 private slots:
     void on_pushButton_logout_clicked();
+    void on_pushButton_authorSearch_clicked();
+    void on_pushButton_authorAdd_clicked();
     void on_pushButton_bookSearch_clicked();
     void on_pushButton_bookAdd_clicked();
     void on_pushButton_memberAdd_clicked();

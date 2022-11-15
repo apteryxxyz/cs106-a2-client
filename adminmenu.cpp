@@ -3,6 +3,8 @@
 
 #include "booksearch.h"
 #include "addbook.h"
+#include "authorsearch.h"
+#include "addauthor.h"
 
 AdminMenu::AdminMenu(Login *parent)
     : QMainWindow()
@@ -26,6 +28,24 @@ void AdminMenu::on_pushButton_logout_clicked()
     delete this;
 }
 
+void AdminMenu::on_pushButton_authorAdd_clicked()
+{
+    // Show the add author pop up
+    AddAuthor *author_add = new AddAuthor;
+    author_add->worker->set_token(worker->token);
+    author_add->show();
+}
+
+
+void AdminMenu::on_pushButton_authorSearch_clicked()
+{
+    // Show the author search screen, hide this
+    AuthorSearch *author_search = new AuthorSearch(this);
+    author_search->worker->set_token(worker->token);
+    author_search->show();
+    this->hide();
+}
+
 void AdminMenu::on_pushButton_bookSearch_clicked()
 {
     // Show the book search screen, hide this
@@ -46,4 +66,3 @@ void AdminMenu::on_pushButton_bookAdd_clicked()
 void AdminMenu::on_pushButton_memberAdd_clicked() {}
 
 void AdminMenu::on_pushButton_bookLog_clicked() {}
-
