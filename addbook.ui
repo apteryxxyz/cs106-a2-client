@@ -63,11 +63,25 @@
          </layout>
         </item>
         <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_3">
+          <item>
+           <widget class="QLabel" name="label_description">
+            <property name="text">
+             <string>Description:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="line_description"/>
+          </item>
+         </layout>
+        </item>
+        <item>
          <layout class="QHBoxLayout" name="horizontalLayout">
           <item>
            <widget class="QLabel" name="label_author">
             <property name="text">
-             <string>Author:</string>
+             <string>Author ID:</string>
             </property>
             <property name="buddy">
              <cstring>line_author</cstring>
@@ -76,6 +90,20 @@
           </item>
           <item>
            <widget class="QLineEdit" name="line_author"/>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_4">
+          <item>
+           <widget class="QLabel" name="label_cover">
+            <property name="text">
+             <string>Cover Image URL:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="line_cover"/>
           </item>
          </layout>
         </item>

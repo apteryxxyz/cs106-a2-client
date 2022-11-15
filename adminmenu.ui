@@ -108,6 +108,31 @@ background-color: #2466A8;
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_menu">
      <item>
+      <widget class="QPushButton" name="pushButton_authorSearch">
+       <property name="styleSheet">
+        <string notr="true">color: white;
+background-color: #2466A8;
+
+</string>
+       </property>
+       <property name="text">
+        <string>Author Search</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_authorAdd">
+       <property name="styleSheet">
+        <string notr="true">color: white;
+background-color: #2466A8;
+</string>
+       </property>
+       <property name="text">
+        <string>Add Author</string>
+       </property>
+      </widget>
+     </item>
+     <item>
       <widget class="QPushButton" name="pushButton_bookSearch">
        <property name="styleSheet">
         <string notr="true">color: white;
@@ -176,7 +201,7 @@ background-color: #2466A8;
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>22</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>
