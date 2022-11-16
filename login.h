@@ -27,6 +27,7 @@ private slots:
 
 private:
     Ui::Login *ui;
+    void check_credentials();
 };
 
 #endif // LOGIN_H
