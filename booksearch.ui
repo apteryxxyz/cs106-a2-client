@@ -82,7 +82,7 @@
      </item>
     </layout>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>80</x>
@@ -168,6 +168,9 @@
        <property name="rowCount">
         <number>13</number>
        </property>
+       <property name="columnCount">
+        <number>6</number>
+       </property>
        <attribute name="horizontalHeaderCascadingSectionResizes">
         <bool>false</bool>
        </attribute>
@@ -184,6 +187,11 @@
        <row/>
        <row/>
        <row/>
+       <column>
+        <property name="text">
+         <string>ID</string>
+        </property>
+       </column>
        <column>
         <property name="text">
          <string>ISBN</string>
@@ -220,7 +228,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>22</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>

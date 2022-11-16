@@ -2,6 +2,7 @@
 #include "ui_authorsearch.h"
 
 #include "models/author.h"
+#include "manageauthor.h"
 #include <QTableWidgetItem>
 
 AuthorSearch::AuthorSearch(AdminMenu *parent)
@@ -60,3 +61,31 @@ void AuthorSearch::on_lineEdit_searchBar_returnPressed()
         add_item(ui, i, 2, author.last_name);
     }
 }
+
+void AuthorSearch::on_tableWidget_cellClicked(int row, int column)
+{
+    // Get first item of row
+    QTableWidgetItem *item = ui->tableWidget->item(row, 0);
+    QString id = item->text();
+
+    // Get the existing author data
+    std::string endpoint = "/authors/" + id.toStdString();
+    QString response = worker->get(endpoint);
+
+    int error = worker->response_has_error(response);
+    // Using 'column' here to prevent unused variable warning
+    if (error > column) return; // This should never be reached
+
+    QJsonDocument json = QJsonDocument::fromJson(response.toUtf8());
+    QJsonObject raw_author = json.object();
+
+    Author author;
+    author.read(raw_author);
+
+    // Open manage author window
+    ManageAuthor *edit_author = new ManageAuthor(author);
+    edit_author->worker->set_token(this->worker->token);
+
+    edit_author->show();
+}
+

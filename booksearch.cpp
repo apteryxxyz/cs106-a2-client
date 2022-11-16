@@ -54,11 +54,11 @@ void BookSearch::on_lineEdit_searchBar_returnPressed()
         Book book;
         book.read(raw_book);
 
-        add_item(ui, i, 0, book.isbn);
-        add_item(ui, i, 1, book.title);
-        add_item(ui, i, 2, book.author.first_name + " " + book.author.last_name);
-        add_item(ui, i, 3, book.genre);
-        // FIXME: Quantity is not appearing in the table
-        add_item(ui, i, 4, QString::number(book.quantity));
+        add_item(ui, i, 0, book.id);
+        add_item(ui, i, 1, book.isbn);
+        add_item(ui, i, 2, book.title);
+        add_item(ui, i, 3, book.author.first_name + " " + book.author.last_name);
+        add_item(ui, i, 4, book.genre);
+        add_item(ui, i, 5, QString::number(book.quantity));
     }
 }
