@@ -16,6 +16,8 @@ SOURCES += \
     main.cpp \
     manageauthor.cpp \
     managebook.cpp \
+    managemember.cpp \
+    membersearch.cpp \
     worker.cpp
 
 HEADERS += \
@@ -25,6 +27,8 @@ HEADERS += \
     login.h \
     manageauthor.h \
     managebook.h \
+    managemember.h \
+    membersearch.h \
     models/author.h \
     models/book.h \
     models/borrow.h \
@@ -37,7 +41,9 @@ FORMS += \
     booksearch.ui \
     login.ui \
     manageauthor.ui \
-    managebook.ui
+    managebook.ui \
+    managemember.ui \
+    membersearch.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

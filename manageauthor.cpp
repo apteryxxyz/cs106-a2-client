@@ -62,7 +62,7 @@ void ManageAuthor::on_buttonBox_accepted()
         if (error == 400)
             QMessageBox::information(this, "Invalid Data", "Something you enter was invalid, please edit your inputs and try again.");
         else
-            QMessageBox::information(this, "Unknown Error", "An unknown error has occurred, please try again later.");
+            QMessageBox::information(this, "Error", "Something went wrong, please try again.");
         return;
     }
 

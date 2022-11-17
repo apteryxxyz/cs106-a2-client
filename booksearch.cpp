@@ -86,9 +86,9 @@ void BookSearch::on_tableWidget_cellClicked(int row, int column)
     book.read(raw_book);
 
     // Open manage author window
-    ManageBook *edit_author = new ManageBook(book);
-    edit_author->worker->set_token(this->worker->token);
+    ManageBook *edit_book = new ManageBook(book);
+    edit_book->worker->set_token(this->worker->token);
 
-    edit_author->show();
+    edit_book->show();
 }
 

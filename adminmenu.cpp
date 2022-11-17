@@ -1,10 +1,12 @@
 #include "adminmenu.h"
 #include "ui_adminmenu.h"
 
-#include "booksearch.h"
-#include "managebook.h"
 #include "authorsearch.h"
 #include "manageauthor.h"
+#include "booksearch.h"
+#include "managebook.h"
+#include "membersearch.h"
+#include "managemember.h"
 
 AdminMenu::AdminMenu(Login *parent)
     : QMainWindow()
@@ -64,6 +66,22 @@ void AdminMenu::on_pushButton_bookAdd_clicked()
     book_add->show();
 }
 
-void AdminMenu::on_pushButton_memberAdd_clicked() {}
+void AdminMenu::on_pushButton_memberSearch_clicked()
+{
+    // Show the member search screen, hide this
+    MemberSearch *member_search = new MemberSearch(this);
+    member_search->worker->set_token(worker->token);
+    member_search->show();
+    this->hide();
+}
+
+void AdminMenu::on_pushButton_memberAdd_clicked()
+{
+    // Show the add member pop up
+    User member;
+    ManageMember *member_add = new ManageMember(member);
+    member_add->worker->set_token(worker->token);
+    member_add->show();
+}
 
 void AdminMenu::on_pushButton_bookLog_clicked() {}

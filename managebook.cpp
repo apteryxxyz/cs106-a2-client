@@ -75,8 +75,10 @@ void ManageBook::on_buttonBox_accepted()
     if (error > 0) {
         if (error == 400)
             QMessageBox::information(this, "Invalid Data", "Something you enter was invalid, please edit your inputs and try again.");
+        else if (error == 409)
+            QMessageBox::information(this, "Duplicate Data", "The ISBN you entered is already in use, please edit your inputs and try again.");
         else
-            QMessageBox::information(this, "Unknown Error", "An unknown error has occurred, please try again later.");
+            QMessageBox::information(this, "Error", "Something went wrong, please try again.");
         return;
     }
 
