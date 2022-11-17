@@ -19,6 +19,18 @@ Login::~Login()
 
 void Login::on_LoginButton_clicked()
 {
+    Login::check_credentials();
+}
+
+void Login::keyPressEvent(QKeyEvent *event)
+{
+    if (event->key() == Qt::Key_Return) {
+        Login::check_credentials();
+    }
+}
+
+void Login::check_credentials()
+{
     // Create the credentials object
     QString email_address = ui->EmailInput->text();
     QString password = ui->PasswordInput->text();
@@ -44,6 +56,7 @@ void Login::on_LoginButton_clicked()
             AdminMenu *menu = new AdminMenu(this);
             menu->worker->set_token(token);
             menu->show();
+            menu->setWindowState(Qt::WindowFullScreen);
             this->hide();
         } else if (type == 2) {
             // Successful member login, show member window
@@ -53,4 +66,3 @@ void Login::on_LoginButton_clicked()
         }
     }
 }
-

@@ -5,6 +5,7 @@
 
 #include <QMainWindow>
 #include <QMessageBox>
+#include <QKeyEvent>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Login; }
@@ -22,9 +23,11 @@ public:
 
 private slots:
     void on_LoginButton_clicked();
+    void keyPressEvent(QKeyEvent *event);
 
 private:
     Ui::Login *ui;
+    void check_credentials();
 };
 
 #endif // LOGIN_H
