@@ -7,6 +7,7 @@
 #include "managebook.h"
 #include "membersearch.h"
 #include "managemember.h"
+#include "messagelog.h"
 
 AdminMenu::AdminMenu(Login *parent)
     : QMainWindow()
@@ -87,4 +88,11 @@ void AdminMenu::on_pushButton_memberAdd_clicked()
     member_add->show();
 }
 
-void AdminMenu::on_pushButton_bookLog_clicked() {}
+void AdminMenu::on_pushButton_bookLog_clicked()
+{
+    MessageLog *message_log = new MessageLog(this);
+    message_log->worker->set_token(worker->token);
+    message_log->setWindowState(Qt::WindowFullScreen);
+    message_log->show();
+    this->hide();
+}
