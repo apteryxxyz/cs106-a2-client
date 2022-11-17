@@ -56,6 +56,7 @@ void Login::check_credentials()
             AdminMenu *menu = new AdminMenu(this);
             menu->worker->set_token(token);
             menu->show();
+            menu->setWindowState(Qt::WindowFullScreen);
             this->hide();
         } else if (type == 2) {
             // Successful member login, show member window
