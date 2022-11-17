@@ -30,7 +30,7 @@ void AuthorSearch::on_pushButton_back_clicked()
 // A simple function to easily insert a row into the table
 void add_item(Ui::AuthorSearch *ui, int row, int column, QString content) {
     QTableWidgetItem *item = new QTableWidgetItem(content);
-    item->setFlags(item->flags() ^ Qt::ItemIsEnabled);
+    if (column != 0)  item->setFlags(item->flags() ^ Qt::ItemIsEnabled);
     ui->tableWidget->setItem(row, column, item);
 }
 
@@ -64,6 +64,8 @@ void AuthorSearch::on_lineEdit_searchBar_returnPressed()
 
 void AuthorSearch::on_tableWidget_cellClicked(int row, int column)
 {
+    if (column == 0) return;
+
     // Get first item of row
     QTableWidgetItem *item = ui->tableWidget->item(row, 0);
     QString id = item->text();
@@ -73,8 +75,7 @@ void AuthorSearch::on_tableWidget_cellClicked(int row, int column)
     QString response = worker->get(endpoint);
 
     int error = worker->response_has_error(response);
-    // Using 'column' here to prevent unused variable warning
-    if (error > column) return; // This should never be reached
+    if (error > 0) return; // This should never be reached
 
     QJsonDocument json = QJsonDocument::fromJson(response.toUtf8());
     QJsonObject raw_author = json.object();

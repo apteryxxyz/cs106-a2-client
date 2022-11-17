@@ -19,13 +19,14 @@ ManageAuthor::ManageAuthor(Author author)
     } else {
         // Editing an existing author
         ui->buttonBox->button(QDialogButtonBox::Ok)->setText("Save");
-        ui->buttonBox->button(QDialogButtonBox::Cancel)->setText("Delete");
+        auto delete_button = ui->buttonBox->button(QDialogButtonBox::Cancel);
+        delete_button->setText("Delete");
+        delete_button->setStyleSheet("background-color: red; color: white;");
         
         // Pre fill the input boxes
         ui->line_first->setText(author.first_name);
         ui->line_last->setText(author.last_name);
     }
-
 }
 
 ManageAuthor::~ManageAuthor()
@@ -66,7 +67,7 @@ void ManageAuthor::on_buttonBox_accepted()
     }
 
     this->close();
-    QMessageBox::information(this, "Author Updated", "Author has been successfully updated!");
+    QMessageBox::information(this, "Author Saved", "Author has been successfully saved!");
     delete this;
 }
 

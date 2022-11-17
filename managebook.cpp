@@ -19,7 +19,9 @@ ManageBook::ManageBook(Book book)
     } else {
         // Editing an existing book
         ui->buttonBox->button(QDialogButtonBox::Ok)->setText("Save");
-        ui->buttonBox->button(QDialogButtonBox::Cancel)->setText("Delete");
+        auto delete_button = ui->buttonBox->button(QDialogButtonBox::Cancel);
+        delete_button->setText("Delete");
+        delete_button->setStyleSheet("background-color: red; color: white;");
 
         // Pre fill the input boxes
         ui->line_isbn->setText(book.isbn);
