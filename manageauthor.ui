@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>AddAuthor</class>
- <widget class="QDialog" name="AddAuthor">
+ <class>ManageAuthor</class>
+ <widget class="QDialog" name="ManageAuthor">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -37,9 +37,8 @@
    </property>
    <item row="0" column="0">
     <widget class="QGroupBox" name="groupBox">
-     <property name="styleSheet">
-      <string notr="true">background-color: rgb(213, 229, 246);
-color: rgb(128, 128, 128);</string>
+     <property name="title">
+      <string>Manage Author</string>
      </property>
      <layout class="QGridLayout" name="gridLayout">
       <property name="topMargin">

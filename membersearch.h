@@ -1,5 +1,5 @@
-#ifndef BOOKSEARCH_H
-#define BOOKSEARCH_H
+#ifndef MEMBERSEARCH_H
+#define MEMBERSEARCH_H
 
 #include "worker.h"
 #include "adminmenu.h"
@@ -7,10 +7,10 @@
 #include <QMainWindow>
 
 QT_BEGIN_NAMESPACE
-namespace Ui { class BookSearch; }
+namespace Ui { class MemberSearch; }
 QT_END_NAMESPACE
 
-class BookSearch : public QMainWindow
+class MemberSearch : public QMainWindow
 {
     Q_OBJECT
 
@@ -18,8 +18,8 @@ public:
     AdminMenu *parent;
     Worker *worker;
 
-    explicit BookSearch(AdminMenu *parent);
-    ~BookSearch();
+    explicit MemberSearch(AdminMenu *parent);
+    ~MemberSearch();
 
 private slots:
     void on_pushButton_back_clicked();
@@ -27,7 +27,7 @@ private slots:
     void on_tableWidget_cellClicked(int row, int column);
 
 private:
-    Ui::BookSearch *ui;
+    Ui::MemberSearch *ui;
 };
 
-#endif // BOOKSEARCH_H
+#endif // MEMBERSEARCH_H

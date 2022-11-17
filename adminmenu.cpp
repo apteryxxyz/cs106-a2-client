@@ -1,10 +1,12 @@
 #include "adminmenu.h"
 #include "ui_adminmenu.h"
 
-#include "booksearch.h"
-#include "addbook.h"
 #include "authorsearch.h"
-#include "addauthor.h"
+#include "manageauthor.h"
+#include "booksearch.h"
+#include "managebook.h"
+#include "membersearch.h"
+#include "managemember.h"
 
 AdminMenu::AdminMenu(Login *parent)
     : QMainWindow()
@@ -31,11 +33,11 @@ void AdminMenu::on_pushButton_logout_clicked()
 void AdminMenu::on_pushButton_authorAdd_clicked()
 {
     // Show the add author pop up
-    AddAuthor *author_add = new AddAuthor;
+    Author author;
+    ManageAuthor *author_add = new ManageAuthor(author);
     author_add->worker->set_token(worker->token);
     author_add->show();
 }
-
 
 void AdminMenu::on_pushButton_authorSearch_clicked()
 {
@@ -60,11 +62,28 @@ void AdminMenu::on_pushButton_bookSearch_clicked()
 void AdminMenu::on_pushButton_bookAdd_clicked()
 {
     // Show the add book pop up
-    AddBook *book_add = new AddBook;
+    Book book;
+    ManageBook *book_add = new ManageBook(book);
     book_add->worker->set_token(worker->token);
     book_add->show();
 }
 
-void AdminMenu::on_pushButton_memberAdd_clicked() {}
+void AdminMenu::on_pushButton_memberSearch_clicked()
+{
+    // Show the member search screen, hide this
+    MemberSearch *member_search = new MemberSearch(this);
+    member_search->worker->set_token(worker->token);
+    member_search->show();
+    this->hide();
+}
+
+void AdminMenu::on_pushButton_memberAdd_clicked()
+{
+    // Show the add member pop up
+    User member;
+    ManageMember *member_add = new ManageMember(member);
+    member_add->worker->set_token(worker->token);
+    member_add->show();
+}
 
 void AdminMenu::on_pushButton_bookLog_clicked() {}

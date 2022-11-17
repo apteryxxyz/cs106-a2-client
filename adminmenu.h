@@ -31,6 +31,8 @@ private slots:
     void on_pushButton_memberAdd_clicked();
     void on_pushButton_bookLog_clicked();
 
+    void on_pushButton_memberSearch_clicked();
+
 private:
     Ui::AdminMenu *ui;
 };
