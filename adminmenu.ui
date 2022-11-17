@@ -6,12 +6,12 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>948</width>
-    <height>644</height>
+    <width>838</width>
+    <height>581</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>AdminMenu</string>
+   <string>Admin Menu</string>
   </property>
   <property name="styleSheet">
    <string notr="true">background-color: #DADADA;
@@ -114,16 +114,16 @@
      <number>0</number>
     </property>
     <property name="leftMargin">
-     <number>10</number>
+     <number>20</number>
     </property>
     <property name="topMargin">
      <number>30</number>
     </property>
     <property name="rightMargin">
-     <number>10</number>
+     <number>20</number>
     </property>
     <property name="bottomMargin">
-     <number>10</number>
+     <number>20</number>
     </property>
     <item>
      <layout class="QGridLayout" name="gridLayout_2">
@@ -154,7 +154,7 @@
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">color: 1B4D7E</string>
+         <string notr="true">color: #1B4D7E;</string>
         </property>
         <property name="text">
          <string>Welcome back, [Admin Name]!</string>
@@ -194,13 +194,30 @@
           <height>35</height>
          </size>
         </property>
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
         <property name="styleSheet">
-         <string notr="true">color: white;
+         <string notr="true">color: #dadada;
 background-color: #2466A8;
 </string>
         </property>
         <property name="text">
-         <string>Log out</string>
+         <string> Logout</string>
+        </property>
+        <property name="icon">
+         <iconset>
+          <normalon>:/icons/icons/log-out.svg</normalon>
+         </iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
         </property>
        </widget>
       </item>
@@ -247,7 +264,7 @@ background-color: #2466A8;
         <property name="minimumSize">
          <size>
           <width>50</width>
-          <height>50</height>
+          <height>75</height>
          </size>
         </property>
         <property name="maximumSize">
@@ -262,6 +279,11 @@ background-color: #2466A8;
           <height>0</height>
          </size>
         </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
         <property name="styleSheet">
          <string notr="true">color: white;
 background-color: #2466A8;
@@ -269,6 +291,17 @@ background-color: #2466A8;
         </property>
         <property name="text">
          <string>Member Search</string>
+        </property>
+        <property name="icon">
+         <iconset>
+          <normalon>:/icons/icons/user.svg</normalon>
+         </iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>64</width>
+          <height>64</height>
+         </size>
         </property>
        </widget>
       </item>
@@ -283,7 +316,7 @@ background-color: #2466A8;
         <property name="minimumSize">
          <size>
           <width>50</width>
-          <height>50</height>
+          <height>75</height>
          </size>
         </property>
         <property name="maximumSize">
@@ -298,6 +331,11 @@ background-color: #2466A8;
           <height>0</height>
          </size>
         </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
         <property name="styleSheet">
          <string notr="true">color: white;
 background-color: #2466A8;
@@ -305,6 +343,17 @@ background-color: #2466A8;
         </property>
         <property name="text">
          <string>Author Search</string>
+        </property>
+        <property name="icon">
+         <iconset>
+          <normalon>:/icons/icons/folder.svg</normalon>
+         </iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>64</width>
+          <height>64</height>
+         </size>
         </property>
        </widget>
       </item>
@@ -319,7 +368,7 @@ background-color: #2466A8;
         <property name="minimumSize">
          <size>
           <width>50</width>
-          <height>50</height>
+          <height>75</height>
          </size>
         </property>
         <property name="maximumSize">
@@ -334,6 +383,11 @@ background-color: #2466A8;
           <height>0</height>
          </size>
         </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
         <property name="styleSheet">
          <string notr="true">color: white;
 background-color: #2466A8;
@@ -341,6 +395,17 @@ background-color: #2466A8;
         </property>
         <property name="text">
          <string>Add Author</string>
+        </property>
+        <property name="icon">
+         <iconset>
+          <normalon>:/icons/icons/folder-plus.svg</normalon>
+         </iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>64</width>
+          <height>64</height>
+         </size>
         </property>
        </widget>
       </item>
@@ -355,7 +420,7 @@ background-color: #2466A8;
         <property name="minimumSize">
          <size>
           <width>50</width>
-          <height>50</height>
+          <height>75</height>
          </size>
         </property>
         <property name="maximumSize">
@@ -369,6 +434,11 @@ background-color: #2466A8;
           <width>0</width>
           <height>0</height>
          </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
         </property>
         <property name="styleSheet">
          <string notr="true">color: white;
@@ -378,41 +448,16 @@ background-color: #2466A8;
         <property name="text">
          <string>Check Book Log</string>
         </property>
-       </widget>
-      </item>
-      <item row="7" column="1">
-       <widget class="QPushButton" name="pushButton_memberAdd">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
+        <property name="icon">
+         <iconset>
+          <normalon>:/icons/icons/inbox.svg</normalon>
+         </iconset>
         </property>
-        <property name="minimumSize">
+        <property name="iconSize">
          <size>
-          <width>50</width>
-          <height>50</height>
+          <width>64</width>
+          <height>64</height>
          </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>200</width>
-          <height>200</height>
-         </size>
-        </property>
-        <property name="sizeIncrement">
-         <size>
-          <width>0</width>
-          <height>0</height>
-         </size>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">color: white;
-background-color: #2466A8;
-</string>
-        </property>
-        <property name="text">
-         <string>Add Member</string>
         </property>
        </widget>
       </item>
@@ -427,7 +472,7 @@ background-color: #2466A8;
         <property name="minimumSize">
          <size>
           <width>50</width>
-          <height>50</height>
+          <height>75</height>
          </size>
         </property>
         <property name="maximumSize">
@@ -442,6 +487,11 @@ background-color: #2466A8;
           <height>0</height>
          </size>
         </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
         <property name="styleSheet">
          <string notr="true">color: white;
 background-color: #2466A8;
@@ -449,6 +499,17 @@ background-color: #2466A8;
         </property>
         <property name="text">
          <string>Book Search</string>
+        </property>
+        <property name="icon">
+         <iconset>
+          <normalon>:/icons/icons/book.svg</normalon>
+         </iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>64</width>
+          <height>64</height>
+         </size>
         </property>
        </widget>
       </item>
@@ -463,7 +524,7 @@ background-color: #2466A8;
         <property name="minimumSize">
          <size>
           <width>50</width>
-          <height>50</height>
+          <height>75</height>
          </size>
         </property>
         <property name="maximumSize">
@@ -478,6 +539,11 @@ background-color: #2466A8;
           <height>0</height>
          </size>
         </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
         <property name="styleSheet">
          <string notr="true">color: white;
 background-color: #2466A8;
@@ -485,6 +551,69 @@ background-color: #2466A8;
         </property>
         <property name="text">
          <string>Add Book</string>
+        </property>
+        <property name="icon">
+         <iconset>
+          <normalon>:/icons/icons/plus-square.svg</normalon>
+         </iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>64</width>
+          <height>64</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item row="7" column="1">
+       <widget class="QPushButton" name="pushButton_memberAdd">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>50</width>
+          <height>75</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>200</width>
+          <height>200</height>
+         </size>
+        </property>
+        <property name="sizeIncrement">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: white;
+background-color: #2466A8;
+</string>
+        </property>
+        <property name="text">
+         <string>Add Member</string>
+        </property>
+        <property name="icon">
+         <iconset>
+          <normalon>:/icons/icons/user-plus.svg</normalon>
+         </iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>64</width>
+          <height>64</height>
+         </size>
         </property>
        </widget>
       </item>
@@ -510,7 +639,7 @@ background-color: #2466A8;
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>948</width>
+     <width>838</width>
      <height>21</height>
     </rect>
    </property>
