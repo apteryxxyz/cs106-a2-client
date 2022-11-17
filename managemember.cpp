@@ -56,7 +56,8 @@ void ManageMember::on_buttonBox_accepted()
 
     QJsonObject member_object;
     member.write(member_object);
-    member_object.insert("password", ui->line_password->text());
+    if (member.id == "")
+        member_object.insert("password", ui->line_password->text());
     QJsonDocument member_document(member_object);
 
     QString response;

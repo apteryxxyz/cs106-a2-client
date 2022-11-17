@@ -44,8 +44,8 @@ void AdminMenu::on_pushButton_authorSearch_clicked()
     // Show the author search screen, hide this
     AuthorSearch *author_search = new AuthorSearch(this);
     author_search->worker->set_token(worker->token);
-    author_search->show();
     author_search->setWindowState(Qt::WindowFullScreen);
+    author_search->show();
     this->hide();
 }
 
@@ -54,8 +54,8 @@ void AdminMenu::on_pushButton_bookSearch_clicked()
     // Show the book search screen, hide this
     BookSearch *book_search = new BookSearch(this);
     book_search->worker->set_token(worker->token);
-    book_search->show();
     book_search->setWindowState(Qt::WindowFullScreen);
+    book_search->show();
     this->hide();
 }
 
@@ -73,6 +73,7 @@ void AdminMenu::on_pushButton_memberSearch_clicked()
     // Show the member search screen, hide this
     MemberSearch *member_search = new MemberSearch(this);
     member_search->worker->set_token(worker->token);
+    member_search->setWindowState(Qt::WindowFullScreen);
     member_search->show();
     this->hide();
 }
