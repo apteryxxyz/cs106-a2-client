@@ -2,7 +2,7 @@
 #include "ui_adminmenu.h"
 
 #include "booksearch.h"
-#include "addbook.h"
+#include "managebook.h"
 #include "authorsearch.h"
 #include "manageauthor.h"
 
@@ -58,7 +58,8 @@ void AdminMenu::on_pushButton_bookSearch_clicked()
 void AdminMenu::on_pushButton_bookAdd_clicked()
 {
     // Show the add book pop up
-    AddBook *book_add = new AddBook;
+    Book book;
+    ManageBook *book_add = new ManageBook(book);
     book_add->worker->set_token(worker->token);
     book_add->show();
 }

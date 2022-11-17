@@ -2,6 +2,7 @@
 #include "ui_booksearch.h"
 
 #include "models/book.h"
+#include "managebook.h"
 #include <QTableWidgetItem>
 
 BookSearch::BookSearch(AdminMenu *parent)
@@ -62,3 +63,31 @@ void BookSearch::on_lineEdit_searchBar_returnPressed()
         add_item(ui, i, 5, QString::number(book.quantity));
     }
 }
+
+void BookSearch::on_tableWidget_cellClicked(int row, int column)
+{
+    // Get first item of row
+    QTableWidgetItem *item = ui->tableWidget->item(row, 0);
+    QString id = item->text();
+
+    // Get the existing author data
+    std::string endpoint = "/books/" + id.toStdString();
+    QString response = worker->get(endpoint);
+
+    int error = worker->response_has_error(response);
+    // Using 'column' here to prevent unused variable warning
+    if (error > column) return; // This should never be reached
+
+    QJsonDocument json = QJsonDocument::fromJson(response.toUtf8());
+    QJsonObject raw_book = json.object();
+
+    Book book;
+    book.read(raw_book);
+
+    // Open manage author window
+    ManageBook *edit_author = new ManageBook(book);
+    edit_author->worker->set_token(this->worker->token);
+
+    edit_author->show();
+}
+

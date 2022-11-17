@@ -9,22 +9,22 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    addbook.cpp \
     adminmenu.cpp \
     authorsearch.cpp \
     booksearch.cpp \
     login.cpp \
     main.cpp \
     manageauthor.cpp \
+    managebook.cpp \
     worker.cpp
 
 HEADERS += \
-    addbook.h \
     adminmenu.h \
     authorsearch.h \
     booksearch.h \
     login.h \
     manageauthor.h \
+    managebook.h \
     models/author.h \
     models/book.h \
     models/borrow.h \
@@ -32,12 +32,12 @@ HEADERS += \
     worker.h
 
 FORMS += \
-    addbook.ui \
     adminmenu.ui \
     authorsearch.ui \
     booksearch.ui \
     login.ui \
-    manageauthor.ui
+    manageauthor.ui \
+    managebook.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

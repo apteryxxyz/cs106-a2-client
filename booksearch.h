@@ -24,6 +24,7 @@ public:
 private slots:
     void on_pushButton_back_clicked();
     void on_lineEdit_searchBar_returnPressed();
+    void on_tableWidget_cellClicked(int row, int column);
 
 private:
     Ui::BookSearch *ui;

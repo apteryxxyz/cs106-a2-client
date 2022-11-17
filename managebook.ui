@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>AddBook</class>
- <widget class="QDialog" name="AddBook">
+ <class>ManageBook</class>
+ <widget class="QDialog" name="ManageBook">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -23,7 +23,7 @@
    <item row="0" column="0">
     <widget class="QGroupBox" name="groupBox">
      <property name="title">
-      <string>Add Book</string>
+      <string>Manage Book</string>
      </property>
      <layout class="QGridLayout" name="gridLayout">
       <item row="0" column="0">
@@ -117,28 +117,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QComboBox" name="combo_genre">
-            <item>
-             <property name="text">
-              <string>Select</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>Fiction</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>Biography</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>Childrens</string>
-             </property>
-            </item>
-           </widget>
+           <widget class="QLineEdit" name="line_genre"/>
           </item>
          </layout>
         </item>
