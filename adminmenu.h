@@ -22,6 +22,8 @@ public:
     AdminMenu(Login *parent);
     ~AdminMenu();
 
+    void show();
+
 private slots:
     void on_pushButton_logout_clicked();
     void on_pushButton_authorSearch_clicked();
@@ -30,7 +32,6 @@ private slots:
     void on_pushButton_bookAdd_clicked();
     void on_pushButton_memberAdd_clicked();
     void on_pushButton_bookLog_clicked();
-
     void on_pushButton_memberSearch_clicked();
 
 private:

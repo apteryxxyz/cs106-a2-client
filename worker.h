@@ -1,6 +1,8 @@
 #ifndef WORKER_H
 #define WORKER_H
 
+#include "models/user.h"
+
 #include <string>
 
 #include <QObject>
@@ -12,7 +14,7 @@
 #include <QJsonObject>
 #include <QJsonArray>
 
-class Worker : QObject
+class Worker : public QObject
 {
     Q_OBJECT
     QNetworkAccessManager* manager;
@@ -20,12 +22,15 @@ class Worker : QObject
 
 public:
     QString token = "";
+    User user;
 
     Worker();
     ~Worker();
 
 public slots:
     void set_token(QString new_token);
+    void set_config(Worker *old_worker);
+    void set_config(QString new_token, User new_user);
     QString wait_for_reply(QNetworkReply*reply);
     int response_has_error(QString response);
 

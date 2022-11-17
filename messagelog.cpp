@@ -3,6 +3,7 @@
 
 #include "models/message.h"
 #include <QTableWidgetItem>
+#include <QMessageBox>
 
 MessageLog::MessageLog(AdminMenu *parent)
     : QMainWindow()
@@ -17,6 +18,15 @@ MessageLog::~MessageLog()
 {
     delete ui;
     delete worker;
+}
+
+void MessageLog::show()
+{
+    QMainWindow::show();
+
+    QString name = worker->user.first_name;
+    ui->label_welcome->setText("Welcome back, " + name);
+    on_lineEdit_searchBar_returnPressed();
 }
 
 void MessageLog::on_pushButton_back_clicked()
@@ -37,8 +47,9 @@ void MessageLog::on_lineEdit_searchBar_returnPressed()
 {
     QString query = ui->lineEdit_searchBar->text();
 
-    // TODO: Parse query into QUrlQuery
-    std::string endpoint = "/users/@me/messages?search=" + query.toStdString();
+    std::string endpoint = worker->user.type == User::Type::Admin
+            ? "/messages?search=" + query.toStdString()
+            : "/users/@me/messages?search=" + query.toStdString();
     QString response = worker->get(endpoint);
 
     int error = worker->response_has_error(response);
@@ -47,7 +58,7 @@ void MessageLog::on_lineEdit_searchBar_returnPressed()
     QJsonDocument json = QJsonDocument::fromJson(response.toUtf8());
     QJsonArray raw_messages = json.array();
 
-    // Insert the book data into the table
+    // Insert the message data into the table
     ui->tableWidget->setRowCount(raw_messages.size());
     for (int i = 0; i < raw_messages.size(); i++)
     {
@@ -69,7 +80,9 @@ void MessageLog::on_tableWidget_cellClicked(int row, int column)
     QString id = item->text();
 
     // Get the existing message data
-    std::string endpoint = "/users/@me/messages/" + id.toStdString();
+    std::string endpoint = worker->user.type == User::Type::Admin
+            ? "/messages/" + id.toStdString()
+            : "/users/@me/messages/" + id.toStdString();
     QString response = worker->get(endpoint);
 
     int error = worker->response_has_error(response);

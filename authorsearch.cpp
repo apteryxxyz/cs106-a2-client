@@ -10,14 +10,23 @@ AuthorSearch::AuthorSearch(AdminMenu *parent)
     , worker(new Worker())
     , ui(new Ui::AuthorSearch)
 {
-    ui->setupUi(this);
     this->parent = parent;
+    ui->setupUi(this);
 }
 
 AuthorSearch::~AuthorSearch()
 {
     delete ui;
     delete worker;
+}
+
+void AuthorSearch::show()
+{
+    QMainWindow::show();
+
+    QString name = worker->user.first_name;
+    ui->label_welcome->setText("Welcome back, " + name);
+    on_lineEdit_searchBar_returnPressed();
 }
 
 void AuthorSearch::on_pushButton_back_clicked()
@@ -38,7 +47,6 @@ void AuthorSearch::on_lineEdit_searchBar_returnPressed()
 {
     QString query = ui->lineEdit_searchBar->text();
 
-    // TODO: Parse query into QUrlQuery
     std::string endpoint = "/authors?search=" + query.toStdString();
     QString response = worker->get(endpoint);
 
@@ -85,7 +93,7 @@ void AuthorSearch::on_tableWidget_cellClicked(int row, int column)
 
     // Open manage author window
     ManageAuthor *edit_author = new ManageAuthor(author);
-    edit_author->worker->set_token(this->worker->token);
+    edit_author->worker->set_config(worker);
 
     edit_author->show();
 }

@@ -20,6 +20,15 @@ BookSearch::~BookSearch()
     delete worker;
 }
 
+void BookSearch::show()
+{
+    QMainWindow::show();
+
+    QString name = worker->user.first_name;
+    ui->label_welcome->setText("Welcome back, " + name);
+    on_lineEdit_searchBar_returnPressed();
+}
+
 void BookSearch::on_pushButton_back_clicked()
 {
     this->close();
@@ -37,7 +46,6 @@ void add_item(Ui::BookSearch *ui, int row, int column, QString content) {
 void BookSearch::on_lineEdit_searchBar_returnPressed()
 {
     QString query = ui->lineEdit_searchBar->text();
-    // TODO: Parse query into QUrlQuery
     std::string endpoint = "/books?search=" + query.toStdString();
     QString response = worker->get(endpoint);
 
@@ -87,7 +95,7 @@ void BookSearch::on_tableWidget_cellClicked(int row, int column)
 
     // Open manage author window
     ManageBook *edit_book = new ManageBook(book);
-    edit_book->worker->set_token(this->worker->token);
+    edit_book->worker->set_config(worker);
 
     edit_book->show();
 }

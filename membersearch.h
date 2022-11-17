@@ -18,6 +18,8 @@ public:
     AdminMenu *parent;
     Worker *worker;
 
+    void show();
+    
     explicit MemberSearch(AdminMenu *parent);
     ~MemberSearch();
 

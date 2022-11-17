@@ -18,6 +18,8 @@ public:
     AdminMenu *parent;
     Worker *worker;
 
+    void show();
+    
     explicit MessageLog(AdminMenu *parent);
     ~MessageLog();
 
