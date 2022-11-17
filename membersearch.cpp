@@ -20,6 +20,15 @@ MemberSearch::~MemberSearch()
     delete worker;
 }
 
+void MemberSearch::show()
+{
+    QMainWindow::show();
+
+    QString name = worker->user.first_name;
+    ui->label_welcome->setText("Welcome back, " + name);
+    on_lineEdit_searchBar_returnPressed();
+}
+
 void MemberSearch::on_pushButton_back_clicked()
 {
     this->close();
@@ -37,7 +46,6 @@ void add_item(Ui::MemberSearch *ui, int row, int column, QString content) {
 void MemberSearch::on_lineEdit_searchBar_returnPressed()
 {
     QString query = ui->lineEdit_searchBar->text();
-    // TODO: Parse query into QUrlQuery
     std::string endpoint = "/users?members_only=1&search=" + query.toStdString();
     QString response = worker->get(endpoint);
 
@@ -86,7 +94,7 @@ void MemberSearch::on_tableWidget_cellClicked(int row, int column)
 
     // Open manage member window
     ManageMember *edit_member = new ManageMember(member);
-    edit_member->worker->set_token(this->worker->token);
+    edit_member->worker->set_config(worker);
 
     edit_member->show();
 }

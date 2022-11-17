@@ -1,5 +1,5 @@
-#ifndef AUTHORSEARCH_H
-#define AUTHORSEARCH_H
+#ifndef MESSAGELOG_H
+#define MESSAGELOG_H
 
 #include "worker.h"
 #include "adminmenu.h"
@@ -7,10 +7,10 @@
 #include <QMainWindow>
 
 QT_BEGIN_NAMESPACE
-namespace Ui { class AuthorSearch; }
+namespace Ui { class MessageLog; }
 QT_END_NAMESPACE
 
-class AuthorSearch : public QMainWindow
+class MessageLog : public QMainWindow
 {
     Q_OBJECT
 
@@ -20,8 +20,8 @@ public:
 
     void show();
     
-    explicit AuthorSearch(AdminMenu *parent);
-    ~AuthorSearch();
+    explicit MessageLog(AdminMenu *parent);
+    ~MessageLog();
 
 private slots:
     void on_pushButton_back_clicked();
@@ -29,7 +29,7 @@ private slots:
     void on_tableWidget_cellClicked(int row, int column);
 
 private:
-    Ui::AuthorSearch *ui;
+    Ui::MessageLog *ui;
 };
 
-#endif // AUTHORSEARCH_H
+#endif // MESSAGELOG_H

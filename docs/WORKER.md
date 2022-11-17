@@ -24,13 +24,13 @@ Window::Window()
 
 ## Setting the token
 
-Āfter creating an instance of a window with a worker, but before showing it, ensure you set the access token for the worker. This would involve something like  this `window->worker->set_token(token);`. The token will usually be defined within the current windows own worker instance. `window->worker->set_token(this->worker->token);` (you don't need to include to `this->`, but this would help in distinguishing the different worker instances.)
+After creating an instance of a window with a worker, but before showing it, ensure you set the access token for the worker. This would involve something like this `window->worker->set_config(this->worker)`. This will take the token and user object from the parent window and set them within the new window.
 
 Your code might look something like this:
 
 ```cpp
 Window *window = new Window(this);
-window->worker->set_token(this->worker->token);
+window->worker->set_config(this->worker);
 window->show();
 this->hide();
 ```

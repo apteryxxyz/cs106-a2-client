@@ -1,4 +1,5 @@
 #include "login.h"
+#include "models/user.h"
 #include "ui_login.h"
 
 #include "adminmenu.h"
@@ -50,15 +51,18 @@ void Login::check_credentials()
         QMessageBox::information(this, "Login Failed", "Incorrect email or password");
     } else {
         QString token = login_object.value("token").toString();
-        int type = login_object.value("user_type").toInt();
+        QJsonObject user_object = login_object.value("user").toObject();
 
-        if (type == 1) {
+        User user;
+        user.read(user_object);
+
+        if (user.type == 1) {
             AdminMenu *menu = new AdminMenu(this);
-            menu->worker->set_token(token);
+            menu->worker->set_config(token, user);
             menu->setWindowState(Qt::WindowFullScreen);
             menu->show();
             this->hide();
-        } else if (type == 2) {
+        } else if (user.type == 2) {
             // Successful member login, show member window
             QMessageBox::information(this, "Login Successful", "You are a member!");
         } else {

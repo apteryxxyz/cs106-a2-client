@@ -446,7 +446,7 @@ background-color: #2466A8;
 </string>
         </property>
         <property name="text">
-         <string>Check Book Log</string>
+         <string>Message Log</string>
         </property>
         <property name="icon">
          <iconset>

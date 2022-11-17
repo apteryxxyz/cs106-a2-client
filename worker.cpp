@@ -16,6 +16,18 @@ void Worker::set_token(QString new_token)
     token = new_token;
 }
 
+// Transfer the config from one worker to another
+void Worker::set_config(QString new_token, User new_user)
+{
+    token = new_token;
+    user = new_user;
+}
+void Worker::set_config(Worker *old_worker)
+{
+    token = old_worker->token;
+    user = old_worker->user;
+}
+
 // Shared wait for response method for all other methods
 QString Worker::wait_for_reply(QNetworkReply*reply)
 {
