@@ -1,8 +1,8 @@
 #include "manageauthor.h"
 #include "ui_manageauthor.h"
 
-#include "models/author.h"
 #include <QMessageBox>
+#include <QPushButton>
 
 ManageAuthor::ManageAuthor(Author author)
     : QDialog()
@@ -12,9 +12,20 @@ ManageAuthor::ManageAuthor(Author author)
     ui->setupUi(this);
     this->author = author;
 
-    // Pre define input text values
-    ui->line_first->setText(author.first_name);
-    ui->line_last->setText(author.last_name);
+    if (author.id == "") {
+        // Creating new author
+        ui->buttonBox->button(QDialogButtonBox::Cancel)->setText("Cancel");
+        ui->buttonBox->button(QDialogButtonBox::Ok)->setText("Create");
+    } else {
+        // Editing an existing author
+        ui->buttonBox->button(QDialogButtonBox::Ok)->setText("Save");
+        ui->buttonBox->button(QDialogButtonBox::Cancel)->setText("Delete");
+        
+        // Pre fill the input boxes
+        ui->line_first->setText(author.first_name);
+        ui->line_last->setText(author.last_name);
+    }
+
 }
 
 ManageAuthor::~ManageAuthor()
@@ -26,6 +37,7 @@ ManageAuthor::~ManageAuthor()
 // Save new book
 void ManageAuthor::on_buttonBox_accepted()
 {
+    // Take the text from input boxes and set them to author
     author.first_name = ui->line_first->text();
     author.last_name = ui->line_last->text();
 
@@ -34,7 +46,7 @@ void ManageAuthor::on_buttonBox_accepted()
     QJsonDocument author_document(author_object);
 
     QString response;
-    // I 
+    // If author.id is empty, we are creating a new author
     if (author.id == "") {
         QString created_author = worker->put("/authors", author_document.toJson());
         response = created_author;
@@ -44,9 +56,9 @@ void ManageAuthor::on_buttonBox_accepted()
         response = updated_author;
     }
 
-    int author_error = worker->response_has_error(response);
-    if (author_error > 0) {
-        if (author_error == 400)
+    int error = worker->response_has_error(response);
+    if (error > 0) {
+        if (error == 400)
             QMessageBox::information(this, "Invalid Data", "Something you enter was invalid, please edit your inputs and try again.");
         else
             QMessageBox::information(this, "Unknown Error", "An unknown error has occurred, please try again later.");
@@ -60,6 +72,18 @@ void ManageAuthor::on_buttonBox_accepted()
 
 void ManageAuthor::on_buttonBox_rejected()
 {
+    // If author.id exists, then this button is deleting the author
+    if (author.id != "") {
+        std::string endpoint = "/authors/" + author.id.toStdString();
+        QString response = worker->remove(endpoint);
+
+        int error = worker->response_has_error(response);
+        if (error > 0)
+            QMessageBox::information(this, "Unknown Error", "An unknown error has occurred, please try again later.");
+        else
+            QMessageBox::information(this, "Author Deleted", "Author has been successfully deleted!");
+    }
+
     this->close();
     delete this;
 }
