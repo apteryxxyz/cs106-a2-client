@@ -45,6 +45,7 @@ void AdminMenu::on_pushButton_authorSearch_clicked()
     AuthorSearch *author_search = new AuthorSearch(this);
     author_search->worker->set_token(worker->token);
     author_search->show();
+    author_search->setWindowState(Qt::WindowFullScreen);
     this->hide();
 }
 
@@ -54,6 +55,7 @@ void AdminMenu::on_pushButton_bookSearch_clicked()
     BookSearch *book_search = new BookSearch(this);
     book_search->worker->set_token(worker->token);
     book_search->show();
+    book_search->setWindowState(Qt::WindowFullScreen);
     this->hide();
 }
 
