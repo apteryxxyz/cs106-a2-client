@@ -33,9 +33,3 @@ void ViewMember::on_buttonBox_accepted()
     this->close();
     delete this;
 }
-
-void ViewMember::on_buttonBox_rejected()
-{
-    this->close();
-    delete this;
-}
