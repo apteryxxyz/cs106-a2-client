@@ -41,6 +41,8 @@ void add_item(Ui::AuthorSearch *ui, int row, int column, QString content) {
     QTableWidgetItem *item = new QTableWidgetItem(content);
     if (column != 0)  item->setFlags(item->flags() ^ Qt::ItemIsEnabled);
     ui->tableWidget->setItem(row, column, item);
+    //ui->tableWidget->resizeColumnsToContents();
+    //Commented code allows for reactive resizing of columns but overrides default column width
 }
 
 void AuthorSearch::on_lineEdit_searchBar_returnPressed()
