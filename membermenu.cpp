@@ -2,7 +2,7 @@
 #include "ui_membermenu.h"
 
 #include "booksearch.h"
-#include "managemember.h"
+#include "borrowsearch.h"
 #include "messagelog.h"
 #include "viewmember.h"
 #include "login.h"
@@ -52,3 +52,22 @@ void MemberMenu::on_pushButton_memberInfo_clicked()
     ViewMember *popup = new ViewMember(worker->user);
     popup->show();
 }
+
+void MemberMenu::on_pushButton_messages_clicked()
+{
+    MessageLog *log = new MessageLog(this);
+    log->worker->set_config(this->worker);
+    log->setWindowState(Qt::WindowFullScreen);
+    log->show();
+    this->hide();
+}
+
+void MemberMenu::on_pushButton_authorSearch_clicked()
+{
+    BorrowSearch *search = new BorrowSearch(this);
+    search->worker->set_config(this->worker);
+    search->setWindowState(Qt::WindowFullScreen);
+    search->show();
+    this->hide();
+}
+
