@@ -20,6 +20,7 @@ SOURCES += \
     membermenu.cpp \
     membersearch.cpp \
     messagelog.cpp \
+    viewmember.cpp \
     worker.cpp
 
 HEADERS += \
@@ -38,6 +39,7 @@ HEADERS += \
     models/borrow.h \
     models/message.h \
     models/user.h \
+    viewmember.h \
     worker.h
 
 FORMS += \
@@ -50,7 +52,8 @@ FORMS += \
     managemember.ui \
     membermenu.ui \
     membersearch.ui \
-    messagelog.ui
+    messagelog.ui \
+    viewmember.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
