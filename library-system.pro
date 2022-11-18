@@ -12,6 +12,7 @@ SOURCES += \
     adminmenu.cpp \
     authorsearch.cpp \
     booksearch.cpp \
+    borrowsearch.cpp \
     login.cpp \
     main.cpp \
     manageauthor.cpp \
@@ -27,6 +28,7 @@ HEADERS += \
     adminmenu.h \
     authorsearch.h \
     booksearch.h \
+    borrowsearch.h \
     login.h \
     manageauthor.h \
     managebook.h \
@@ -46,6 +48,7 @@ FORMS += \
     adminmenu.ui \
     authorsearch.ui \
     booksearch.ui \
+    borrowsearch.ui \
     login.ui \
     manageauthor.ui \
     managebook.ui \

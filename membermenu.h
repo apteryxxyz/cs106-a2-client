@@ -30,6 +30,8 @@ private slots:
     void on_pushButton_memberInfo_clicked();
     void on_pushButton_messages_clicked();
 
+    void on_pushButton_authorSearch_clicked();
+
 private:
     Ui::MemberMenu *ui;
 };
