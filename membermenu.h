@@ -27,6 +27,7 @@ public:
 private slots:
     void on_pushButton_logout_clicked();
     void on_pushButton_bookSearch_clicked();
+    void on_pushButton_memberInfo_clicked();
 
 private:
     Ui::MemberMenu *ui;

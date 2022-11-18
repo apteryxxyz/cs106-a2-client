@@ -4,6 +4,7 @@
 #include "booksearch.h"
 #include "managemember.h"
 #include "messagelog.h"
+#include "viewmember.h"
 #include "login.h"
 
 MemberMenu::MemberMenu(Login *parent)
@@ -44,4 +45,10 @@ void MemberMenu::on_pushButton_bookSearch_clicked()
     book_search->setWindowState(Qt::WindowFullScreen);
     book_search->show();
     this->hide();
+}
+
+void MemberMenu::on_pushButton_memberInfo_clicked()
+{
+    ViewMember *popup = new ViewMember(worker->user);
+    popup->show();
 }
