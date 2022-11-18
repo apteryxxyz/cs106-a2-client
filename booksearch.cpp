@@ -5,7 +5,7 @@
 #include "managebook.h"
 #include <QTableWidgetItem>
 
-BookSearch::BookSearch(AdminMenu *parent)
+BookSearch::BookSearch(QMainWindow *parent)
     : QMainWindow()
     , worker(new Worker())
     , ui(new Ui::BookSearch)

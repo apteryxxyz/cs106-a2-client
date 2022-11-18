@@ -5,7 +5,7 @@
 #include <QTableWidgetItem>
 #include <QMessageBox>
 
-MessageLog::MessageLog(AdminMenu *parent)
+MessageLog::MessageLog(QMainWindow *parent)
     : QMainWindow()
     , worker(new Worker())
     , ui(new Ui::MessageLog)

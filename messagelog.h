@@ -16,13 +16,12 @@ class MessageLog : public QMainWindow
     Q_OBJECT
 
 public:
-    AdminMenu *parent;
-    MemberMenu *member_menu;
+    QMainWindow *parent;
     Worker *worker;
 
     void show();
     
-    explicit MessageLog(AdminMenu *parent);
+    explicit MessageLog(QMainWindow *parent);
     ~MessageLog();
 
 private slots:

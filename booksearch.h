@@ -16,14 +16,12 @@ class BookSearch : public QMainWindow
     Q_OBJECT
 
 public:
-    AdminMenu *parent;
-    MemberMenu *membermenu;
+    QMainWindow *parent;
     Worker *worker;
 
     void show();
     
-    explicit BookSearch(AdminMenu *parent);
-   // BookSearch(MemberMenu *membermenu);
+    explicit BookSearch(QMainWindow *parent);
     ~BookSearch();
 
 
