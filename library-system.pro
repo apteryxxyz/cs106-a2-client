@@ -17,6 +17,7 @@ SOURCES += \
     manageauthor.cpp \
     managebook.cpp \
     managemember.cpp \
+    membermenu.cpp \
     membersearch.cpp \
     messagelog.cpp \
     worker.cpp
@@ -29,6 +30,7 @@ HEADERS += \
     manageauthor.h \
     managebook.h \
     managemember.h \
+    membermenu.h \
     membersearch.h \
     messagelog.h \
     models/author.h \
@@ -46,6 +48,7 @@ FORMS += \
     manageauthor.ui \
     managebook.ui \
     managemember.ui \
+    membermenu.ui \
     membersearch.ui \
     messagelog.ui
 

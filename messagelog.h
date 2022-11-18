@@ -3,6 +3,7 @@
 
 #include "worker.h"
 #include "adminmenu.h"
+#include "membermenu.h"
 
 #include <QMainWindow>
 
@@ -16,6 +17,7 @@ class MessageLog : public QMainWindow
 
 public:
     AdminMenu *parent;
+    MemberMenu *member_menu;
     Worker *worker;
 
     void show();

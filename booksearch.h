@@ -5,6 +5,7 @@
 #include "adminmenu.h"
 
 #include <QMainWindow>
+#include "membermenu.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class BookSearch; }
@@ -16,12 +17,16 @@ class BookSearch : public QMainWindow
 
 public:
     AdminMenu *parent;
+    MemberMenu *membermenu;
     Worker *worker;
 
     void show();
     
     explicit BookSearch(AdminMenu *parent);
+   // BookSearch(MemberMenu *membermenu);
     ~BookSearch();
+
+
 
 private slots:
     void on_pushButton_back_clicked();
