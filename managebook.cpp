@@ -74,7 +74,7 @@ void ManageBook::on_buttonBox_accepted()
     int error = worker->response_has_error(response);
     if (error > 0) {
         if (error == 400)
-            QMessageBox::information(this, "Invalid Data", "Something you enter was invalid, please edit your inputs and try again.");
+            QMessageBox::information(this, "Invalid Data", "Something you entered was invalid, please edit your inputs and try again.");
         else if (error == 409)
             QMessageBox::information(this, "Duplicate Data", "The ISBN you entered is already in use, please edit your inputs and try again.");
         else
