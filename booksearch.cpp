@@ -74,29 +74,35 @@ void BookSearch::on_lineEdit_searchBar_returnPressed()
 
 void BookSearch::on_tableWidget_cellClicked(int row, int column)
 {
-    if (column == 0) return;
+    if (User::Type::Admin == worker->user.type) //Checks user type before allowing editing of book info
+    {
+        if (column == 0) return;
 
-    // Get first item of row
-    QTableWidgetItem *item = ui->tableWidget->item(row, 0);
-    QString id = item->text();
+        // Get first item of row
+        QTableWidgetItem* item = ui->tableWidget->item(row, 0);
+        QString id = item->text();
 
-    // Get the existing author data
-    std::string endpoint = "/books/" + id.toStdString();
-    QString response = worker->get(endpoint);
+        // Get the existing author data
+        std::string endpoint = "/books/" + id.toStdString();
+        QString response = worker->get(endpoint);
 
-    int error = worker->response_has_error(response);
-    if (error > 0) return; // This should never be reached
+        int error = worker->response_has_error(response);
+        if (error > 0) return; // This should never be reached
 
-    QJsonDocument json = QJsonDocument::fromJson(response.toUtf8());
-    QJsonObject raw_book = json.object();
+        QJsonDocument json = QJsonDocument::fromJson(response.toUtf8());
+        QJsonObject raw_book = json.object();
 
-    Book book;
-    book.read(raw_book);
+        Book book;
+        book.read(raw_book);
 
-    // Open manage author window
-    ManageBook *edit_book = new ManageBook(book);
-    edit_book->worker->set_config(worker);
+        // Open manage author window
+        ManageBook* edit_book = new ManageBook(book);
+        edit_book->worker->set_config(worker);
 
-    edit_book->show();
+        edit_book->show();
+    }
 }
+
+
+
 
