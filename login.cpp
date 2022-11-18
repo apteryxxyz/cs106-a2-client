@@ -3,6 +3,7 @@
 #include "ui_login.h"
 
 #include "adminmenu.h"
+#include "membermenu.h"
 
 Login::Login()
   : QMainWindow()
@@ -57,6 +58,7 @@ void Login::check_credentials()
         user.read(user_object);
 
         if (user.type == 1) {
+			// Successful Admin Login, show the Admin Menu
             AdminMenu *menu = new AdminMenu(this);
             menu->worker->set_config(token, user);
             menu->setWindowState(Qt::WindowFullScreen);
@@ -64,7 +66,11 @@ void Login::check_credentials()
             this->hide();
         } else if (user.type == 2) {
             // Successful member login, show member window
-            QMessageBox::information(this, "Login Successful", "You are a member!");
+			MemberMenu* menu = new MemberMenu(this);
+			menu->worker->set_config(token, user);
+			menu->setWindowState(Qt::WindowFullScreen);
+			menu->show();
+			this->hide();
         } else {
             QMessageBox::information(this, "Unknown Error", "An unknown error has occurred!");
         }
