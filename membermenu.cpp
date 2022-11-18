@@ -3,6 +3,8 @@
 
 #include "booksearch.h"
 #include "borrowsearch.h"
+#include "borrowbook.h"
+#include "returnbook.h"
 #include "messagelog.h"
 #include "viewmember.h"
 #include "login.h"
@@ -69,5 +71,21 @@ void MemberMenu::on_pushButton_authorSearch_clicked()
     search->setWindowState(Qt::WindowFullScreen);
     search->show();
     this->hide();
+}
+
+
+void MemberMenu::on_pushButton_bookBorrow_clicked()
+{
+    BorrowBook *popup = new BorrowBook();
+    popup->worker->set_config(this->worker);
+    popup->show();
+}
+
+
+void MemberMenu::on_pushButton_bookReturn_clicked()
+{
+    ReturnBook *popup = new ReturnBook();
+    popup->worker->set_config(this->worker);
+    popup->show();
 }
 

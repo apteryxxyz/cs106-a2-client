@@ -12,6 +12,7 @@ SOURCES += \
     adminmenu.cpp \
     authorsearch.cpp \
     booksearch.cpp \
+    borrowbook.cpp \
     borrowsearch.cpp \
     login.cpp \
     main.cpp \
@@ -21,6 +22,7 @@ SOURCES += \
     membermenu.cpp \
     membersearch.cpp \
     messagelog.cpp \
+    returnbook.cpp \
     viewmember.cpp \
     worker.cpp
 
@@ -28,6 +30,7 @@ HEADERS += \
     adminmenu.h \
     authorsearch.h \
     booksearch.h \
+    borrowbook.h \
     borrowsearch.h \
     login.h \
     manageauthor.h \
@@ -41,6 +44,7 @@ HEADERS += \
     models/borrow.h \
     models/message.h \
     models/user.h \
+    returnbook.h \
     viewmember.h \
     worker.h
 
@@ -48,6 +52,7 @@ FORMS += \
     adminmenu.ui \
     authorsearch.ui \
     booksearch.ui \
+    borrowbook.ui \
     borrowsearch.ui \
     login.ui \
     manageauthor.ui \
@@ -56,6 +61,7 @@ FORMS += \
     membermenu.ui \
     membersearch.ui \
     messagelog.ui \
+    returnbook.ui \
     viewmember.ui
 
 # Default rules for deployment.

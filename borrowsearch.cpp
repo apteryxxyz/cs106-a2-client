@@ -38,7 +38,7 @@ void BorrowSearch::on_pushButton_back_clicked()
 // A simple function to easily insert a row into the table
 void add_item(Ui::BorrowSearch *ui, int row, int column, QString content) {
     QTableWidgetItem *item = new QTableWidgetItem(content);
-    if (column != 0) item->setFlags(item->flags() ^ Qt::ItemIsEnabled);
+    if (column != 0 && column != 1) item->setFlags(item->flags() ^ Qt::ItemIsEnabled);
     ui->tableWidget->setItem(row, column, item);
     //ui->tableWidget->resizeColumnsToContents();
     //Commented code allows for reactive resizing of columns but overrides default column width

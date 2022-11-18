@@ -32,6 +32,10 @@ private slots:
 
     void on_pushButton_authorSearch_clicked();
 
+    void on_pushButton_bookBorrow_clicked();
+
+    void on_pushButton_bookReturn_clicked();
+
 private:
     Ui::MemberMenu *ui;
 };

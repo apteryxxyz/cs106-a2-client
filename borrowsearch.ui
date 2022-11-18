@@ -188,7 +188,7 @@ color: rgb(218, 218, 218);</string>
         </column>
         <column>
          <property name="text">
-          <string>New Column</string>
+          <string>Book ID</string>
          </property>
          <property name="textAlignment">
           <set>AlignLeading|AlignVCenter</set>
