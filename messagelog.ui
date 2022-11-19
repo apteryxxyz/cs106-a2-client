@@ -165,8 +165,11 @@ color: rgb(218, 218, 218);</string>
         <attribute name="horizontalHeaderCascadingSectionResizes">
          <bool>false</bool>
         </attribute>
+		<attribute name="horizontalHeaderDefaultSectionSize">
+			<number>300</number>
+		</attribute>
         <attribute name="verticalHeaderStretchLastSection">
-         <bool>false</bool>
+         <bool>true</bool>
         </attribute>
         <row/>
         <row/>
