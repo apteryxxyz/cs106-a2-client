@@ -41,6 +41,7 @@ void add_item(Ui::MessageLog *ui, int row, int column, QString content) {
     QTableWidgetItem *item = new QTableWidgetItem(content);
     if (column != 0)  item->setFlags(item->flags() ^ Qt::ItemIsEnabled);
     ui->tableWidget->setItem(row, column, item);
+    ui->tableWidget->resizeColumnsToContents();
 }
 
 void MessageLog::on_lineEdit_searchBar_returnPressed()
